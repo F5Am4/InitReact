@@ -10,5 +10,28 @@
   },
   "devDependencies": {
     "vite": "^4.3.9"
-  }
+  },
+  "description": "reactProjectInit",
+  "main": "index.js",
+  "dependencies": {
+    "esbuild": "^0.17.19",
+    "nanoid": "^3.3.6",
+    "picocolors": "^1.0.0",
+    "postcss": "^8.4.24",
+    "rollup": "^3.23.0",
+    "source-map-js": "^1.0.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/F5Am4/InitReact.git"
+  },
+  "keywords": [
+    "React1"
+  ],
+  "author": "Nestor Chaparro",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/F5Am4/InitReact/issues"
+  },
+  "homepage": "https://github.com/F5Am4/InitReact#readme"
 }
