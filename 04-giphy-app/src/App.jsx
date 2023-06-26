@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
-import './App.css'
 import ImageCard from './assets/components/ImageCard'
+import './App.css'
 
 function App () {
   const [gifs, setGifs] = useState([])
