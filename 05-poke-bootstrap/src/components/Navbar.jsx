@@ -1,4 +1,4 @@
-import {NavLink} from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 const Navbar = () => {
   return (
     <nav className='navbar navbar-expand-sm navbar-light bg-warning d-flex justify-content-between px-4'>
@@ -9,7 +9,7 @@ const Navbar = () => {
           <NavLink className='nav-link' to='/'>Home</NavLink>
         </li>
         <li className='nav-item px-2'>
-          <Navlink className='nav-link' to='/about'>Acerca de Pokémon</Navlink>
+          <NavLink className='nav-link' to='/about'>Acerca de Pokémon</NavLink>
         </li>
       </ul>
 
