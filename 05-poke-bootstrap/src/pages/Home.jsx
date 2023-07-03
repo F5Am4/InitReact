@@ -38,9 +38,9 @@ const Home = () => {
                 className='card-img-top' src={`http://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.url.split('/')[6]}.png`} alt={pokemon.name}
               />
               <div className='card-body'>
-                <link to={`/pokemon/${pokemon.url.split('/')[6]}`}>
+                <Link to={`/pokemon/${pokemon.url.split('/')[6]}`}>
                   <h4 className='card-title'>{pokemon.name}</h4>
-                </link>
+                </Link>
               </div>
             </div>
           </div>
