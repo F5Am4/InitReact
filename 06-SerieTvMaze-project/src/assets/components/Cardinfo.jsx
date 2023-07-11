@@ -1,4 +1,5 @@
 import React from 'react'
+import CardInfo from '/CardInfo'
 
 const CardInfo = ({ image, title, info, text, cardSize, imageSize }) => {
   return (
