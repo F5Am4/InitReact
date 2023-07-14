@@ -39,10 +39,10 @@ const Home = () => {
         <div className='row'>
           {filteredSeries.map((serie, index) => (
             <div className='col' key={index}>
-              <img src={serie?.image?.medium} alt='' />
+              <img className='card-img-top' src={serie?.image?.medium} alt={serie.id} />
 
               <Link to={`/serie/${serie.id}`}>
-                <p>{serie?.name}</p>
+                <h4 className='card-title'>{serie?.name}</h4>
               </Link>
 
               <div className='card-body'>

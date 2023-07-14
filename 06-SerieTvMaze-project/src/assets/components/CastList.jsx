@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import CardInfo from './CardInfo'
+import CastList from './CastList'
 
 const CastList = ({ id }) => {
   const [cast, setCast] = useState([])
