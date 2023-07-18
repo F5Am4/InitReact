@@ -1,13 +1,14 @@
-import React from 'react'
-import CardInfo from '/CardInfo'
-
-const CardInfo = ({ image, title, info, text, cardSize, imageSize }) => {
+/* eslint-disable react/prop-types */
+/* eslint-disable semi */
+function CardInfo ({ image, title, info, text, cardSize, imageSize }) {
   return (
     <div className='card mb-3' style={{ maxWidth: cardSize }}>
       <div className='row g-0'>
         <div className='col-md-4'>
           <img
-            src={image} className='img-fluid rounded-start' alt='...'
+            src={image}
+            className='img-fluid rounded-start'
+            alt='...'
             style={{ minWidth: imageSize, minHeight: imageSize }}
           />
         </div>

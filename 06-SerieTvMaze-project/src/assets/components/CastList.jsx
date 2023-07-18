@@ -1,5 +1,8 @@
-import React, { useEffect, useState } from 'react'
-import CastList from './CastList'
+/* eslint-disable semi */
+/* eslint-disable react/prop-types */
+
+import { useEffect, useState } from 'react'
+import CardInfo from '../CardInfo'
 
 const CastList = ({ id }) => {
   const [cast, setCast] = useState([])
@@ -7,29 +10,27 @@ const CastList = ({ id }) => {
   const imageSize = 90
 
   useEffect(() => {
-    const fetchCast = async () => {
-      try {
-        const response = await fetch(`https://api.tvmaze.com/shows/${id}/cast`)
-        const results = await response.json()
+    fetch(`https://api.tvmaze.com/shows/${id}/cast`)
+      .then((response) => response.json())
+      .then((results) => {
+        console.log(results)
         setCast(results)
-      } catch (error) {
+      })
+      .catch((error) => {
         console.error(error)
-      }
-    }
-
-    fetchCast()
+      })
   }, [id])
 
   return (
     <div className='container-sm text-center'>
       <div className='row row-cols-auto'>
-        {cast.map((actor, index) => (
+        {cast.map((cast, index) => (
           <CardInfo
             key={index}
-            image={actor.person?.image?.medium}
-            title={actor.person?.name}
+            image={cast.person.image.medium}
+            title={cast.person.name}
             info=''
-            text={`as ${actor.character?.name}`}
+            text={`as ${cast.character.name}`}
             cardSize={cardSize}
             imageSize={imageSize}
           />

@@ -1,57 +1,59 @@
-import React, { useState, useEffect } from 'react'
+/* eslint-disable semi */
+import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 
 const Home = () => {
   const [series, setSeries] = useState([])
-  const [searchTerm, setSearchTerm] = useState('')
+  const [search, setSearch] = useState('')
 
   useEffect(() => {
     fetch('https://api.tvmaze.com/shows')
-      .then(response => response.json())
-      .then(data => setSeries(data))
-      .catch(error => console.log(error))
+      .then((response) => response.json())
+      .then((results) => {
+        console.log(results)
+        setSeries(results)
+      })
+      .catch((error) => {
+        console.error(error)
+      })
   }, [])
 
-  const handleInputChange = event => {
-    setSearchTerm(event.target.value)
-  }
-
-  const filteredSeries = series.filter(serie => {
-    return serie.name.toLowerCase().includes(searchTerm.toLowerCase())
+  const findSerie = series.filter((serie) => {
+    return serie.name.toLowerCase().includes(search.toLowerCase())
   })
+
+  const handleInputChange = (event) => {
+    setSearch(event.target.value)
+  }
 
   return (
     <>
       <div className='container'>
+        <br />
         <h1>Series</h1>
-
-        <form className='form-inline my-2 my-lg-0 w-75'>
+        <form className='input-group mb-3'>
           <input
             type='text'
             className='form-control'
             id='search'
-            placeholder='Enter name'
-            value={searchTerm}
+            placeholder='Enter serie'
+            value={search}
             onChange={handleInputChange}
           />
         </form>
 
-        <div className='row'>
-          {filteredSeries.map((serie, index) => (
-            <div className='col' key={index}>
-              <img className='card-img-top' src={serie?.image?.medium} alt={serie.id} />
+        <div className='container text-center'>
+          <div className='row'>
+            {findSerie.map((serie, index) => (
+              <div className='col' key={index}>
+                <img src={serie?.image.medium} alt='' />
 
-              <Link to={`/serie/${serie.id}`}>
-                <h4 className='card-title'>{serie?.name}</h4>
-              </Link>
-
-              <div className='card-body'>
-                <h5 className='card-title'>{serie.name}</h5>
-                <p className='card-text'>{serie.summary}</p>
-                <a href='#' className='btn btn-primary'>Buscar Serie</a>
+                <Link to={`/serie/${serie.id}`}>
+                  <p>{serie?.name}</p>
+                </Link>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </>

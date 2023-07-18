@@ -1,6 +1,10 @@
 const About = () => {
   return (
-    <div>About</div>
+    <>
+      <div className='container'>
+        <h1>Kata Frontend</h1>
+      </div>
+    </>
   )
 }
 
