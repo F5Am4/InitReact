@@ -2,7 +2,7 @@
 /* eslint-disable react/prop-types */
 
 import { useEffect, useState } from 'react'
-import CardInfo from '../CardInfo'
+import CardInfo from '../components/CardList'
 
 const CastList = ({ id }) => {
   const [cast, setCast] = useState([])

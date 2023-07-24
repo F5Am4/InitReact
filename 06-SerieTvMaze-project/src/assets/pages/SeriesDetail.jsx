@@ -13,18 +13,22 @@ const SeriesDetail = () => {
   useEffect(() => {
     fetch(`https://api.tvmaze.com/shows/${id}`)
       .then(response => response.json())
-      .then(data => setSeries(data))
-      .catch(error => console.log(error))
+      .then(data => {
+        setSeries(data);
 
-      .then((response) => response.json())
-      .then((results) => {
-        console.log(results)
-        setSerie(results)
+        // Ahora, realizamos la segunda llamada de API para obtener información del elenco
+        fetch(`https://api.tvmaze.com/shows/${id}/cast`)
+          .then(response => response.json())
+          .then(results => {
+            console.log(results);
+            setSerie(results);
+          })
+          .catch(error => {
+            console.error(error);
+          });
       })
-      .catch((error) => {
-        console.error(error)
-      })
-  }, [id])
+      .catch(error => console.log(error));
+  }, [id]);
 
   if (!series) {
     return <div>Loading...</div>
